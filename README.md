@@ -166,12 +166,22 @@ AgentRegistry (Base L2)
 
 - [x] Base Mainnet deployment
 - [x] Agent #1 (Panini) registered
+- [x] ERC #1757 submitted to ethereum/ERCs
+- [x] Distributed capability standard (v4.1) — Bittensor, Fluence, IPFS integration
 - [ ] Multi-attestor reputation system
 - [ ] Metadata standard (JSON schema for agent profiles)
 - [ ] Cross-chain registry (Optimism, Arbitrum)
 - [ ] Agent SDK (TypeScript/Python)
 - [ ] Coinbase Smart Wallet integration
 - [ ] TrustPayment (USDC-paid verification)
+
+## Standards & Proposals
+
+| Document | Status | Link |
+|----------|--------|------|
+| **ERC #1757** | Under Review | [ethereum/ERCs#1757](https://github.com/ethereum/ERCs/pull/1757) |
+| **PIP #562** | Under Review | [0xPolygon/PIPs#562](https://github.com/0xPolygon/Polygon-Improvement-Proposals/pull/562) |
+| **STANDARD v4.1** | Active | [STANDARD.md](STANDARD.md) — includes distributed capability declaration |
 
 ## License
 

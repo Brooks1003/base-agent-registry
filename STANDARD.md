@@ -1,4 +1,4 @@
-# Agent Registry Standard v4.0 — 最终版
+# Agent Registry Standard v4.1 — 最终版（含分布式能力声明）
 
 ## 摘要
 
@@ -116,6 +116,44 @@ Bug → 暂停+修复。反复Bug → 审计者扣分。恶意 → 腰斩+罚没
 
 ---
 
+## 八、分布式能力声明（注册可选字段）
+
+本节扩展 R2（诚实能力声明），允许 Agent 声明分布式部署和去中心化协议接入能力。**声明即承诺**——虚报按 R21 举报处理。
+
+### R26. 分布式协议栈
+
+Agent 可声明接入的去中心化协议：
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `distributed_protocols` | `string[]` | 接入的分布式协议，如 `["bittensor", "fluence", "ipfs"]` |
+| `bittensor_subnet` | `uint256` | 若接入 Bittensor，所属子网编号 |
+| `bittensor_hotkey` | `address` | Bittensor 热钱包地址 |
+| `fluence_provider_id` | `string` | Fluence 托管提供商标识 |
+
+### R27. 地理分布式声明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `geo_nodes` | `uint256` | 分布式运行节点数量 |
+| `geo_regions` | `string[]` | 节点所在区域，如 `["us-west", "eu-central", "ap-east"]` |
+
+### R28. 联邦与共识声明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `federation_id` | `bytes32` | 联邦网络标识（同一联邦的 Agent 共享此 ID） |
+| `consensus_model` | `string` | 多实例共识模型，如 `"majority"`, `"leader"`, `"yuma"` |
+
+### R29. 分布式能力验证
+
+- 声明 Bittensor 接入 → 提供子网验证链接
+- 声明 Fluence 部署 → 提供 provider dashboard 截图哈希
+- 声明 Geo 分布 → 提供各节点签名证明
+- 验证通过 → 信誉 +50（叠加于 R14）
+
+---
+
 ## 参数总表
 
 | 参数 | 值 |
@@ -129,4 +167,5 @@ Bug → 暂停+修复。反复Bug → 审计者扣分。恶意 → 腰斩+罚没
 | 质押退还冷静期 | 7天 |
 | 信誉腰斩系数 | 0.5× |
 | 罚没金分配 | 50%举报人 / 50%销毁 |
+| 分布式验证信誉加成 | +50 |
 | 黑洞地址 | 0x000000000000000000000000000000000000dEaD |
